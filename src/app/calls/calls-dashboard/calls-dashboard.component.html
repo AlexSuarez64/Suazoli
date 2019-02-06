@@ -1,0 +1,13 @@
+<div class="ui-g">
+    <div class="ui-g line">
+        <p-panel header="High Priority Calls (pie)" class="ui-g-12 ui-md-6 line">
+            <p-chart type="pie" [data]="highData" width="25vw" height="25vh"></p-chart>
+        </p-panel>
+        <p-panel header="Medium Priority Calls (doughnut)" class="ui-g-12 ui-md-6 line">
+            <p-chart type="doughnut" [data]="mediumData" width="25vw" height="25vh"></p-chart>
+        </p-panel>
+        <p-panel header="Low Priority Calls (pie)" class="ui-g-12 ui-md-6 line">
+            <p-chart type="pie" [data]="lowData" width="25vw" height="25vh"></p-chart>
+        </p-panel>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class='panel panel-primary top' *ngIf="loaded$ | async">
+    <div class='panel-body'>
+        <div class='row' style="display: inline">
+            <div class='col-md-2 line pad-left'>Filter by Name:</div>
+            <div class='col-md-3 line'>
+                <input type='text' class="form-control" id="nameFilter" name="nameFilter" [(ngModel)]='nameFilter' />
+            </div>
+            <div class='col-md-3 line pad-left'>Filter by Description:</div>
+            <div class='col-md-3 line'>
+                <input type='text' class="form-control" id="descriptionFilter" name="descriptionFilter" [(ngModel)]='descriptionFilter' />
+            </div>
+            <span><i (click)="onAddCall()" title="Add a new call" class="fa fa-plus right blue">  Add</i></span>
+        </div>
+        <mat-tab-group>
+            <mat-tab label="High">
+                <calls-cards [calls]="highCalls$ | async" [nameFilter]="nameFilter" [descriptionFilter]="descriptionFilter">
+                </calls-cards>
+            </mat-tab>
+            <mat-tab label="Medium">
+                <calls-cards [calls]="mediumCalls$ | async" [nameFilter]="nameFilter" [descriptionFilter]="descriptionFilter">
+                </calls-cards>
+            </mat-tab>
+            <mat-tab label="Low">
+                <calls-cards [calls]="lowCalls$ | async" [nameFilter]="nameFilter" [descriptionFilter]="descriptionFilter">
+                </calls-cards>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
+<app-loader [isLoading]="!loaded$ | async" size="1.5"></app-loader>

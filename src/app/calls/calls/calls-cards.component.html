@@ -1,0 +1,10 @@
+<mat-grid-list cols="5" rowHeight="160px:160px" class="call-card mat-elevation-z10">
+    <mat-grid-tile class="card-size" *ngFor="let call of calls | callName:nameFilter | callDescription:descriptionFilter" (click)="onEdit(call.id)" matTooltip="{{ call.priority }} - {{ call.description }}">
+        <p-card>
+            <p-header class="card-size">
+                {{call.name}}
+            </p-header>
+            <span class="card-size"><strong>Start: {{call.startDate | date:'shortDate' }}</strong></span>
+        </p-card>
+    </mat-grid-tile>
+</mat-grid-list>
