@@ -19,16 +19,14 @@ import { MaterialModule } from './material.module';
 import { PrimeNGModule } from './primeng.module';
 import { InMemoryWebApiModule   } from 'angular-in-memory-web-api';
 import { CallData } from './calls/shared/misc/call-data';
-import { callsReducer } from './shared/store/reducers/calls.reducer';
-import { CallsEffects } from './shared/store/effects/calls.effects';
+import { callsReducer } from './shared/calls-store/reducers/calls.reducer';
+import { CallsEffects } from './shared/calls-store/effects/calls.effects';
 
 import { environment } from '../environments/environment';
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [storeFreeze] : [];
 
 import { AboutModule } from './about/about.module';
-import { CallEditModule } from './calls/call-edit/call-edit.module';
-import { CallsModule } from './calls/calls/calls.module';
-import { CallsDashboardModule } from './calls/calls-dashboard/calls-dashboard.module';
+import { CallsModule } from './calls/calls.module';
 import { CoreModule } from '@app/core';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
@@ -53,9 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
     ShellModule,
     HomeModule,
     AboutModule,
-    CallEditModule,
     CallsModule,
-    CallsDashboardModule,
     LoginModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),

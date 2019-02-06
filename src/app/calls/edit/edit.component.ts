@@ -2,13 +2,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Call } from '../shared/models/call';
-import * as fromStore from '../../shared/store';
+import * as fromStore from '../../shared/calls-store';
 
 @Component({
-  templateUrl: './call-edit.component.html',
+  templateUrl: './edit.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CallEditComponent implements OnInit {
+export class EditComponent implements OnInit {
 
   call$: Observable<Call>;
 

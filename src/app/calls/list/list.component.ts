@@ -2,15 +2,15 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Call } from '../shared/models/call';
-import * as fromStore from '../../shared/store';
+import * as fromStore from '../../shared/calls-store';
 import * as fromApp from '../../store';
 
 @Component({
-  templateUrl: './calls.component.html',
-  styleUrls: ['./calls.component.scss'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CallsComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   highCalls$: Observable<Call[]>;
   mediumCalls$: Observable<Call[]>;

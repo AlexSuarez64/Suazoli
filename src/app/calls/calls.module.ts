@@ -8,8 +8,8 @@ import { PrimeNGModule } from '@app/primeng.module';
 import { SharedModule } from '@app/shared';
 import { CallsRoutingModule } from './calls.routing';
 import { components } from './';
-import { providers } from '../shared/providers';
-import { pipes } from '../shared/misc';
+import { providers } from './shared/providers';
+import { pipes } from './shared/misc';
 
 @NgModule({
   imports: [

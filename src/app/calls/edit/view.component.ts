@@ -9,7 +9,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../store';
-import * as fromR from '../../shared/store/reducers/calls.reducer';
+import * as fromR from '../../shared/calls-store/reducers/calls.reducer';
 import { takeWhile } from 'rxjs/operators';
 import { Call } from '../shared/models/call';
 import { CallValidator } from '../shared/misc/call-validator';
@@ -33,15 +33,15 @@ export const MY_FORMATS = {
 
 @Component({
   selector: 'cm-view',
-  templateUrl: 'call-view.component.html',
-  styleUrls: ['call-view.component.scss'],
+  templateUrl: 'view.component.html',
+  styleUrls: ['view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ]
 })
-export class CallViewComponent implements OnInit, OnChanges, OnDestroy {
+export class ViewComponent implements OnInit, OnChanges, OnDestroy {
   public title = '';
   public work: Call = { 'id': 0, 'name': '', 'description': '', 'priority': '', 'startDate': '', 'completionDate': '' };
 
