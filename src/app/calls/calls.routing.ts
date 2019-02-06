@@ -1,6 +1,5 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { extract } from '@app/core';
 import { Shell } from '@app/shell/shell.service';
 import { CallsComponent } from './calls.component';

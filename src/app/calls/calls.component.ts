@@ -4,7 +4,7 @@ import * as fromStore from '../shared/calls-store';
 
 @Component({
   selector: 'calls',
-  templateUrl: '<router-outlet></router-outlet>'
+  template: '<router-outlet></router-outlet>'
 })
 export class CallsComponent implements OnInit {
 
