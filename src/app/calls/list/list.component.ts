@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Call } from '../shared/models/call';
 import * as fromStore from '../../shared/calls-store';
-import * as fromApp from '../../store';
 
 @Component({
   templateUrl: './list.component.html',
@@ -35,9 +34,5 @@ export class ListComponent implements OnInit {
     this.mediumCalls$ = this.store.select(fromStore.getMediumCalls);
     this.lowCalls$ = this.store.select(fromStore.getLowCalls);
     this.errorMessage$ = this.store.select(fromStore.getError);
-  }
-
-  onAddCall() {
-    this.store.dispatch(new fromApp.Go({ path: ['/calls', 0] }));
   }
 }
