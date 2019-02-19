@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../shared/calls-store';
+import * as fromStore from './store';
 import * as fromApp from '../store';
 
 import { MenuItem } from 'primeng/api';
@@ -11,8 +11,9 @@ import { MenuItem } from 'primeng/api';
 })
 export class CallsComponent implements OnInit {
 
-  constructor( private store: Store<fromStore.CallsState> ) { }
   items: MenuItem[];
+
+  constructor( private store: Store<fromStore.CallsState> ) { }
   ngOnInit() { }
 
   onAddCall() {

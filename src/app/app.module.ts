@@ -17,10 +17,6 @@ import { reducers, effects, CustomSerializer } from './store';
 
 import { MaterialModule } from './material.module';
 import { PrimeNGModule } from './primeng.module';
-import { InMemoryWebApiModule   } from 'angular-in-memory-web-api';
-import { CallData } from './calls/shared/misc/call-data';
-import { callsReducer } from './shared/calls-store/reducers/calls.reducer';
-import { CallsEffects } from './shared/calls-store/effects/calls.effects';
 
 import { environment } from '../environments/environment';
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [storeFreeze] : [];
@@ -57,9 +53,6 @@ import { AppRoutingModule } from './app-routing.module';
     EffectsModule.forRoot(effects),
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    InMemoryWebApiModule.forFeature(CallData),
-    StoreModule.forFeature('calls', callsReducer),
-    EffectsModule.forFeature([CallsEffects]),
 
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],

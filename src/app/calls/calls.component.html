@@ -1,14 +1,8 @@
 <div class="row col-md-12">
-    <nav [ngStyle]="{float:'right'}">
-        <span>
-          <button type="button" class="btn btn-info" (click)="onCalls()">Calls</button>
-      </span>
-        <span>
+    <nav [ngStyle]="{ 'float':'right' }">
+        <button type="button" class="btn btn-info" (click)="onCalls()">Calls</button>
         <button type="button" class="btn btn-info" (click)="onAddCall()">Add Call</button>
-      </span>
-        <span>
         <button type="button" class="btn btn-info" (click)="onDashboard()">Dashboard</button>
-      </span>
     </nav>
 </div>
 <div class="row col-md-12">

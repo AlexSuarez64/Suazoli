@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Call } from '../shared/models/call';
-import * as fromStore from '../../shared/calls-store';
+import * as fromStore from '../store';
 
 @Component({
   templateUrl: './list.component.html',
@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.loaded$ = this.store.select(fromStore.getCallsLoaded);
     this.loaded$.subscribe(l => {
-      if (l == false) {
+      if (l === false) {
         this.store.dispatch(new fromStore.LoadCalls());
       }
     });

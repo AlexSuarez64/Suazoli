@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Call } from '../shared/models/call';
-import * as fromStore from '../../shared/calls-store';
+import * as fromStore from '../store';
 
 @Component({
   templateUrl: './edit.component.html',

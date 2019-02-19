@@ -9,7 +9,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../store';
-import * as fromR from '../../shared/calls-store/reducers/calls.reducer';
+import * as fromR from '../store/reducers/calls.reducer';
 import { takeWhile } from 'rxjs/operators';
 import { Call } from '../shared/models/call';
 import { CallValidator } from '../shared/misc/call-validator';
@@ -45,10 +45,6 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
   public title = '';
   public work: Call = { 'id': 0, 'name': '', 'description': '', 'priority': '', 'startDate': '', 'completionDate': '' };
 
-  // Use with the generic validation message class
-  displayMessage: { [key: string]: string } = {};
-  private callValidator: CallValidator;
-
   validationMessages: {
     name: { required: string; minlength: string; maxlength: string };
     description: { required: string; minlength: string; maxlength: string };
@@ -56,6 +52,22 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
     startDate: { required: string };
   };
 
+  // Use with the generic validation message class
+  displayMessage: { [key: string]: string } = {};
+
+  exists = false;
+  errorMessage: string;
+  componentActive: boolean;
+  callForm: FormGroup;
+  pageTitle = 'Call Edit';
+
+  @Input() call: Call;
+
+  @Output() create = new EventEmitter<Call>();
+  @Output() update = new EventEmitter<Call>();
+  @Output() delete = new EventEmitter<Call>();
+
+  private callValidator: CallValidator;
 
   constructor(
     private fb: FormBuilder,
@@ -86,18 +98,6 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
     // passing in this form's set of validation messages.
     this.callValidator = new CallValidator(this.validationMessages);
   }
-
-  exists = false;
-  errorMessage: string;
-  componentActive: boolean;
-  callForm: FormGroup;
-  pageTitle = 'Call Edit';
-
-  @Input() call: Call;
-
-  @Output() create = new EventEmitter<Call>();
-  @Output() update = new EventEmitter<Call>();
-  @Output() delete = new EventEmitter<Call>();
 
   ngOnChanges(changes: SimpleChanges) {
     this.callForm = this.fb.group(

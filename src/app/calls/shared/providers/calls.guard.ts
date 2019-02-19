@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { tap, map, switchMap, catchError, take, filter } from 'rxjs/operators';
 
-import { CallsState, getCallsState } from '../../../shared/calls-store/reducers/calls.reducer';
-import * as fromA from '../../../shared/calls-store/actions';
+import { CallsState, getCallsState } from '../../store/reducers/calls.reducer';
+import * as fromA from '../../store/actions';
 import * as fromApp from '../../../store/actions';
 
 // import { CallEditComponent } from '../containers/call-edit.component';

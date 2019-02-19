@@ -1,90 +1,89 @@
-<mat-card>
-    <mat-card-title><strong>{{ pageTitle }}</strong></mat-card-title>
-    <div class="panel panel-primary">
-        <div class="panel-body">
-            <form class="form-horizontal" novalidate [formGroup]="callForm">
-                <fieldset>
-                    <div class="form-group" [ngClass]="{'has-error': displayMessage.description}">
-                        <label class="col-md-2 control-label blue" for="priority">Priority</label>
-                        <div class="col-md-8">
-                            <mat-select class="form-control" id="priority" placeholder="Priority (required)" formControlName="priority" (blur)="blur()">
-                                <mat-option value="High">High</mat-option>
-                                <mat-option value="Medium">Medium</mat-option>
-                                <mat-option value="Low">Low</mat-option>
-                            </mat-select>
-                            <span class="help-block" *ngIf="displayMessage.priority">
+<div class='col-md-12'>
+    <mat-card [ngStyle]="{ 'width': '100%' }">
+        <mat-card-title><strong>{{ pageTitle }}</strong></mat-card-title>
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <form class="form-horizontal" novalidate [formGroup]="callForm">
+                    <fieldset>
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.description}">
+                            <label class="col-md-2 control-label blue" for="priority">Priority</label>
+                            <div class="col-md-8">
+                                <mat-select class="form-control" id="priority" placeholder="Priority (required)" formControlName="priority" (blur)="blur()">
+                                    <mat-option value="High">High</mat-option>
+                                    <mat-option value="Medium">Medium</mat-option>
+                                    <mat-option value="Low">Low</mat-option>
+                                </mat-select>
+                                <span class="help-block" *ngIf="displayMessage.priority">
                                 {{ displayMessage.description }}
                             </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group" [ngClass]="{'has-error': displayMessage.name}">
-                        <label class="col-md-2 control-label blue" for="name">Name</label>
-                        <div class="col-md-8">
-                            <input matInput class="form-control" id="name" type="text" placeholder="Name (required)" formControlName="name" (blur)="blur()" />
-                            <span class="help-block" *ngIf="displayMessage.name">
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.name}">
+                            <label class="col-md-2 control-label blue" for="name">Name</label>
+                            <div class="col-md-8">
+                                <input matInput class="form-control" id="name" type="text" placeholder="Name (required)" formControlName="name" (blur)="blur()" />
+                                <span class="help-block" *ngIf="displayMessage.name">
                                 {{ displayMessage.name }}
                             </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group" [ngClass]="{'has-error': displayMessage.description}">
-                        <label class="col-md-2 control-label blue" for="description">Description</label>
-                        <div class="col-md-8">
-                            <textarea matInput class="form-control" id="description" placeholder="Description (required)"
-                                rows=5 formControlName="description" (blur)="blur()"></textarea>
-                            <span class="help-block" *ngIf="displayMessage.description">
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.description}">
+                            <label class="col-md-2 control-label blue" for="description">Description</label>
+                            <div class="col-md-8">
+                                <textarea matInput class="form-control" id="description" placeholder="Description (required)" rows=5 formControlName="description" (blur)="blur()"></textarea>
+                                <span class="help-block" *ngIf="displayMessage.description">
                                 {{ displayMessage.description }}
                             </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" [ngClass]="{'has-error': displayMessage.startDate}">
-                        <label class="col-md-2 control-label blue" for="startDate">Start Date</label>
-                        <div class="col-md-8">
-                            <mat-form-field>
-                                <input name="startDate" matInput [matDatepicker]="startDate" formControlName="startDate"
-                                    date="true" placeholder="Choose a date">
-                                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                                <mat-datepicker #startDate></mat-datepicker>
-                            </mat-form-field>
-                            <span class="help-block" *ngIf="displayMessage.startDate">
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.startDate}">
+                            <label class="col-md-2 control-label blue" for="startDate">Start Date</label>
+                            <div class="col-md-8">
+                                <mat-form-field>
+                                    <input name="startDate" matInput [matDatepicker]="startDate" formControlName="startDate" date="true" placeholder="Choose a date">
+                                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #startDate></mat-datepicker>
+                                </mat-form-field>
+                                <span class="help-block" *ngIf="displayMessage.startDate">
                                 {{ displayMessage.startDate }}
                             </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" [ngClass]="{'has-error': displayMessage.completionDate}">
-                        <label class="col-md-2 control-label blue" for="completionDate">Completion Date</label>
-                        <div class="col-md-8">
-                            <mat-form-field>
-                                <input name="completionDate" matInput [matDatepicker]="completionDate" formControlName="completionDate"
-                                    date="true" placeholder="Choose a date">
-                                <mat-datepicker-toggle matSuffix [for]="completionDate"></mat-datepicker-toggle>
-                                <mat-datepicker #completionDate></mat-datepicker>
-                            </mat-form-field>
-                            <span class="help-block" *ngIf="displayMessage.completionDate">
+                        <div class="form-group" [ngClass]="{'has-error': displayMessage.completionDate}">
+                            <label class="col-md-2 control-label blue" for="completionDate">Completion Date</label>
+                            <div class="col-md-8">
+                                <mat-form-field>
+                                    <input name="completionDate" matInput [matDatepicker]="completionDate" formControlName="completionDate" date="true" placeholder="Choose a date">
+                                    <mat-datepicker-toggle matSuffix [for]="completionDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #completionDate></mat-datepicker>
+                                </mat-form-field>
+                                <span class="help-block" *ngIf="displayMessage.completionDate">
                                 {{ displayMessage.completionDate }}
                             </span>
+                            </div>
                         </div>
-                    </div>
-                </fieldset>
-            </form>
-            <mat-card-actions>
-                <div class="col-md-6 col-md-offset-2">
-                    <span *ngIf='exists'>
+                    </fieldset>
+                </form>
+                <mat-card-actions>
+                    <div class="col-md-6 col-md-offset-2">
+                        <span *ngIf='exists'>
                         <button type="button" class="btn btn-primary" (click)="updateCall(callForm)" [disabled]="!callForm.valid && callForm.dirty">Save</button>
                     </span>
-                    <span *ngIf='!exists'>
+                        <span *ngIf='!exists'>
                         <button type="button" class="btn btn-primary" (click)="createCall(callForm)" [disabled]="!callForm.valid && callForm.dirty">Save</button>
                     </span>
-                    <span>
+                        <span>
                         <button class="btn btn-success" (click)="onBack()">Cancel</button>
                     </span>
-                    <span>
+                        <span>
                         <button *ngIf="exists" class="btn btn-warning" (click)="deleteCall(callForm)">Delete</button>
                     </span>
-                </div>
-            </mat-card-actions>
+                    </div>
+                </mat-card-actions>
+            </div>
+            <div class="panel-footer" *ngIf='errorMessage'>{{ errorMessage }}</div>
         </div>
-        <div class="panel-footer" *ngIf='errorMessage'>{{ errorMessage }}</div>
-    </div>
-</mat-card>
+    </mat-card>
+</div>

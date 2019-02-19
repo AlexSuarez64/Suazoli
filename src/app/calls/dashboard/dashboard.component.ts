@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../shared/calls-store';
+import * as fromStore from '../store';
 import * as fromApp from '../../store';
 
 const DEFAULT_COLORS = ['#3366CC', '#DC3912', '#FF9900', '#109618', '#990099',
@@ -16,8 +16,6 @@ const DEFAULT_COLORS = ['#3366CC', '#DC3912', '#FF9900', '#109618', '#990099',
 
 export class DashboardComponent implements OnInit {
 
-  constructor(private store: Store<fromStore.CallsState>) { }
-
   highCallsStarted: number;
   highCallsCompleted: number;
   mediumCallsStarted: number;
@@ -28,6 +26,8 @@ export class DashboardComponent implements OnInit {
   highData: any;
   mediumData: any;
   lowData: any;
+
+  constructor(private store: Store<fromStore.CallsState>) { }
 
   ngOnInit() {
 

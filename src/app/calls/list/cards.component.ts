@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../shared/calls-store';
+import * as fromStore from '../store';
 import * as fromApp from '../../store';
 import { Call } from '../shared/models/call';
 
@@ -11,11 +11,11 @@ import { Call } from '../shared/models/call';
 })
 export class CardsComponent implements OnInit {
 
-  constructor( private store: Store<fromStore.CallsState> ) { }
-
   @Input() calls: Call[];
   @Input() nameFilter: string;
   @Input() descriptionFilter: string;
+
+  constructor( private store: Store<fromStore.CallsState> ) { }
 
   ngOnInit() { }
 
