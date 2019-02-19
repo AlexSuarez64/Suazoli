@@ -1,5 +1,5 @@
-<div class='col-md-12'>
-    <mat-card [ngStyle]="{ 'width': '100%' }">
+<div>
+    <mat-card class="col-md-12" [ngStyle]="{ 'width': '100%' }">
         <mat-card-title><strong>{{ pageTitle }}</strong></mat-card-title>
         <div class="panel panel-primary">
             <div class="panel-body">
@@ -69,10 +69,10 @@
                 <mat-card-actions>
                     <div class="col-md-6 col-md-offset-2">
                         <span *ngIf='exists'>
-                        <button type="button" class="btn btn-primary" (click)="updateCall(callForm)" [disabled]="!callForm.valid && callForm.dirty">Save</button>
+                        <button type="button" class="btn btn-primary" (click)="updateCall(callForm)" [disabled]="!callForm.valid && callForm.pristine">Save</button>
                     </span>
                         <span *ngIf='!exists'>
-                        <button type="button" class="btn btn-primary" (click)="createCall(callForm)" [disabled]="!callForm.valid && callForm.dirty">Save</button>
+                        <button type="button" class="btn btn-primary" (click)="createCall(callForm)" [disabled]="!callForm.valid && callForm.pristine">Save</button>
                     </span>
                         <span>
                         <button class="btn btn-success" (click)="onBack()">Cancel</button>
