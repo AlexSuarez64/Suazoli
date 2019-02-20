@@ -1,5 +1,5 @@
 <div>
-    <mat-card class="col-md-12" [ngStyle]="{ 'width': '100%' }">
+    <mat-card class="col-md-12">
         <mat-card-title><strong>{{ pageTitle }}</strong></mat-card-title>
         <div class="panel panel-primary">
             <div class="panel-body">
@@ -13,7 +13,7 @@
                                     <mat-option value="Medium">Medium</mat-option>
                                     <mat-option value="Low">Low</mat-option>
                                 </mat-select>
-                                <span class="help-block" *ngIf="displayMessage.priority">
+                                <span class="help-block red" *ngIf="displayMessage.priority">
                                 {{ displayMessage.description }}
                             </span>
                             </div>
@@ -22,7 +22,7 @@
                             <label class="col-md-2 control-label blue" for="name">Name</label>
                             <div class="col-md-8">
                                 <input matInput class="form-control" id="name" type="text" placeholder="Name (required)" formControlName="name" (blur)="blur()" />
-                                <span class="help-block" *ngIf="displayMessage.name">
+                                <span class="help-block red" *ngIf="displayMessage.name">
                                 {{ displayMessage.name }}
                             </span>
                             </div>
@@ -31,7 +31,7 @@
                             <label class="col-md-2 control-label blue" for="description">Description</label>
                             <div class="col-md-8">
                                 <textarea matInput class="form-control" id="description" placeholder="Description (required)" rows=5 formControlName="description" (blur)="blur()"></textarea>
-                                <span class="help-block" *ngIf="displayMessage.description">
+                                <span class="help-block red" *ngIf="displayMessage.description">
                                 {{ displayMessage.description }}
                             </span>
                             </div>
@@ -45,7 +45,7 @@
                                     <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
                                     <mat-datepicker #startDate></mat-datepicker>
                                 </mat-form-field>
-                                <span class="help-block" *ngIf="displayMessage.startDate">
+                                <span class="help-block red" *ngIf="displayMessage.startDate">
                                 {{ displayMessage.startDate }}
                             </span>
                             </div>
@@ -59,7 +59,7 @@
                                     <mat-datepicker-toggle matSuffix [for]="completionDate"></mat-datepicker-toggle>
                                     <mat-datepicker #completionDate></mat-datepicker>
                                 </mat-form-field>
-                                <span class="help-block" *ngIf="displayMessage.completionDate">
+                                <span class="help-block red" *ngIf="displayMessage.completionDate">
                                 {{ displayMessage.completionDate }}
                             </span>
                             </div>

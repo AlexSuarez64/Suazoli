@@ -107,7 +107,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
           [
             Validators.required,
             Validators.minLength(3),
-            Validators.maxLength(50)
+            Validators.maxLength(100)
           ]
         ],
         description: [
@@ -158,8 +158,10 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
 
       if (this.call.id === 0) {
         this.pageTitle = 'Create Call';
+        this.exists = false;
       } else {
         this.pageTitle = `Edit Call: ${this.call.name}`;
+        this.exists = true;
       }
 
       const xxx = m(this.call.startDate).format('LLL');

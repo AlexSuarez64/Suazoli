@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Update } from '@ngrx/entity';
 import { Observable, of } from 'rxjs';
 import { map, tap, mergeMap, catchError } from 'rxjs/operators';
 
@@ -13,10 +12,6 @@ import { Call } from '../../../calls/shared/models/call';
 @Injectable()
 export class CallsEffects {
   public work: Call;
-  constructor(
-    private actions$: Actions,
-    private callsService: fromServices.CallsService
-  ) {}
 
   @Effect()
   loadCalls$: Observable<Action> = this.actions$
@@ -93,7 +88,7 @@ export class CallsEffects {
     );
 
   @Effect()
-  handleCallsSuccess$ = this.actions$
+  handleCallsSuccess$: Observable<Action> = this.actions$
     .pipe(
       ofType(
         fromCalls.CallActionTypes.CreateCallFail,
@@ -108,7 +103,11 @@ export class CallsEffects {
       })
     );
 
-    
+    constructor(
+      private actions$: Actions,
+      private callsService: fromServices.CallsService
+    ) {}
+
   // @Effect()
   // loadCalls$: Observable<Action> = this.actions$
   //   .pipe(
