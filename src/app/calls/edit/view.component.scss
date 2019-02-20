@@ -2,6 +2,10 @@
     color: rgb(56, 106, 245)
 }
 
+:host(cm-view) {
+    width: 100%
+}
+
 .red {
     color: rgb(245, 52, 38)
 }

@@ -5,7 +5,9 @@ import { Call } from '../shared/models/call';
 import * as fromStore from '../store';
 
 @Component({
+  selector: 'cm-edit',
   templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditComponent implements OnInit {
