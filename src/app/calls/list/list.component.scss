@@ -31,3 +31,7 @@
 .top {
     margin-top: 2em;
 }
+
+:host(list) {
+    width: 100%
+}

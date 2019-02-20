@@ -1,3 +1,7 @@
 .line {
     display: inline-block;
 }
+
+:host(dashboard) {
+    width: 100%
+}
