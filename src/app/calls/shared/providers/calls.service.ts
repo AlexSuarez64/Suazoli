@@ -9,7 +9,7 @@ import { Call } from '../models/call';
 @Injectable()
 export class CallsService {
 
-  private baseUrl = 'api/calls';
+  private baseUrl = 'http://localhost:3000/api/calls';
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -24,8 +24,8 @@ export class CallsService {
   }
 
   getCall(call: Call): Observable<Call> {
-    const id = call.id;
-    if (id === 0) {
+    const id = call._id;
+    if (id === '') {
       return Observable.create({
         id: 0,
         name: null,
@@ -48,14 +48,14 @@ export class CallsService {
   }
 
   deleteCall(call: Call): Observable<Object> {
-    return this.hc.delete(`${this.baseUrl}/${call.id}`)
+    return this.hc.delete(`${this.baseUrl}/${call._id}`)
                   .pipe(
                     catchError(this.handleError)
                   );
   }
 
   updateCall(call: Call): Observable<Object> {
-    return this.hc.put(`${this.baseUrl}/${call.id}`, call, this.httpOptions)
+    return this.hc.put(`${this.baseUrl}/${call._id}`, call, this.httpOptions)
                   .pipe(
                     catchError(this.handleError)
                   );
@@ -71,7 +71,7 @@ export class CallsService {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
-      errorMessage = `Backend returned code ${err.status}: ${err.body.error}`;
+      errorMessage = `Backend returned code ${err.status}: ${err.error}`;
     }
     console.error(err);
     return throwError(errorMessage);

@@ -49,7 +49,7 @@ export function callsReducer(state = initialCallsState, action: CallsActions): C
     }
 
     case CallActionTypes.DeleteCallSuccess: {
-      return adapter.removeOne(action.payload.id, {...state, loaded: true, error: ''});
+      return adapter.removeOne(action.payload._id, {...state, loaded: true, error: ''});
     }
 
     case CallActionTypes.DeleteCallFail: {

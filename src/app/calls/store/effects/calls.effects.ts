@@ -66,7 +66,7 @@ export class CallsEffects {
         this.callsService
           .updateCall(call)
           .pipe(
-            map(x => new fromCalls.UpdateCallSuccess({ id: call.id, changes: call })),
+            map(x => new fromCalls.UpdateCallSuccess({ id: call._id, changes: call })),
             catchError(err => of(new fromCalls.UpdateCallFail(err)))
           )
       )

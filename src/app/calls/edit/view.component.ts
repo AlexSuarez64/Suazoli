@@ -43,7 +43,16 @@ export const MY_FORMATS = {
 })
 export class ViewComponent implements OnInit, OnChanges, OnDestroy {
   public title = '';
-  public work: Call = { 'id': 0, 'name': '', 'description': '', 'priority': '', 'startDate': '', 'completionDate': '' };
+  public work: Call = {
+    '_id': '',
+    'name': '',
+    'description': '',
+    'priority': '',
+    'startDate': '',
+    'completionDate': '',
+    'createdOn': '',
+    'updatedOn': ''
+  };
 
   validationMessages: {
     name: { required: string; minlength: string; maxlength: string };
@@ -156,7 +165,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
     if (this.call) {
       this.callForm.reset();
 
-      if (this.call.id === 0) {
+      if (this.call._id === '') {
         this.pageTitle = 'Create Call';
         this.exists = false;
       } else {
@@ -177,7 +186,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.call.id === 0) {
+    if (this.call._id === '') {
       this.exists = false;
     } else {
       this.exists = true;
@@ -198,7 +207,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
     const { value, valid } = form;
     if (valid) {
       this.work = value;
-      this.work.id = void 0;
+      this.work._id = void 0;
       this.work.startDate = m(this.work.startDate).format('MM/DD/YYYY');
       if (this.work.completionDate) {
         this.work.completionDate = m(this.work.completionDate).format('MM/DD/YYYY');
@@ -224,7 +233,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   deleteCall(form: FormGroup) {
-    if (this.call && this.call.id) {
+    if (this.call && this.call._id) {
       if (confirm(`Really delete the call: ${this.call.name}?`)) {
         const { value } = form;
         this.delete.emit({ ...this.call, ...value });

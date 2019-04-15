@@ -18,12 +18,14 @@ export const getCall = createSelector(
   (callsState, router): Call  => {
     if (parseInt(router.state.params.id, 10) === 0) {
       return {
-        id: 0,
+        _id: '',
         name: '',
         description: '',
-        priority: 'Medium',
+        priority: 'High',
         startDate: '',
-        completionDate: ''
+        completionDate: '',
+        createdOn: '',
+        updatedOn: ''
       };
     } else {
       return router.state && callsState.entities[parseInt(router.state.params.id, 10)];

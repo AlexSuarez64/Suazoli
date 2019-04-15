@@ -10,8 +10,6 @@ import { SharedModule } from '@app/shared';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { InMemoryWebApiModule   } from 'angular-in-memory-web-api';
-import { CallData } from './shared/misc/call-data';
 import { callsReducer } from './store/reducers/calls.reducer';
 import { CallsEffects } from './store/effects/calls.effects';
 
@@ -31,7 +29,6 @@ import { pipes } from './shared/misc';
     PrimeNGModule,
     SharedModule,
     CallsRoutingModule,
-    InMemoryWebApiModule.forFeature(CallData),
     StoreModule.forFeature('calls', callsReducer),
     EffectsModule.forFeature([CallsEffects])
   ],
