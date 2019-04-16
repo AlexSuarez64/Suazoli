@@ -6,16 +6,16 @@ import { MaterialModule } from '@app/material.module';
 import { LoaderComponent } from './loader/loader.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { sharedReducer } from './store/reducers/shared.reducer';
-import { SharedEffects } from './store/effects/shared.effects';
+// import { sharedReducer } from './store/reducers/shared.reducer';
+// import { SharedEffects } from './store/effects/shared.effects';
 
 @NgModule({
   imports: [
     FlexLayoutModule,
     MaterialModule,
     CommonModule,
-    StoreModule.forFeature('shared', sharedReducer),
-    EffectsModule.forFeature([SharedEffects])
+    // StoreModule.forFeature('shared', sharedReducer),
+    // EffectsModule.forFeature([SharedEffects])
   ],
   declarations: [
     LoaderComponent
