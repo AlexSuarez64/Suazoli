@@ -44,6 +44,7 @@ export const MY_FORMATS = {
 export class ViewComponent implements OnInit, OnChanges, OnDestroy {
   public title = '';
   public work: Call = {
+    'id': '',
     '_id': '',
     'name': '',
     'description': '',
