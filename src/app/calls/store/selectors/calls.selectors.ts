@@ -8,7 +8,7 @@ export const selectCallsState = createFeatureSelector<fromR.CallsState>('calls')
 export const getAllCalls = createSelector(
   selectCallsState,
   callsState => {
-    return  Object.keys(callsState.entities).map(id => callsState.entities[parseInt(id, 10)]);
+    return  Object.keys(callsState.entities).map(id => callsState.entities[id]);
   }
 );
 
@@ -16,8 +16,9 @@ export const getCall = createSelector(
   selectCallsState,
   fromRoot.getRouterState,
   (callsState, router): Call  => {
-    if (parseInt(router.state.params.id, 10) === 0) {
+    if (router.state.params.id === '') {
       return {
+        id: '',
         _id: '',
         name: '',
         description: '',
@@ -28,14 +29,14 @@ export const getCall = createSelector(
         updatedOn: ''
       };
     } else {
-      return router.state && callsState.entities[parseInt(router.state.params.id, 10)];
+      return router.state && callsState.entities[router.state.params.id];
     }
   }
 );
 
 export const getCalls = createSelector(
   selectCallsState,
-  callsState => Object.keys(callsState.entities).map(id => callsState.entities[parseInt(id, 10)])
+  callsState => Object.keys(callsState.entities).map(id => callsState.entities[id])
 );
 
 export const getError = createSelector(
