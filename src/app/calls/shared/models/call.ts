@@ -7,5 +7,4 @@ export interface Call {
   startDate: any;
   completionDate?: any;
   createdOn: any;
-  updatedOn: any;
 }

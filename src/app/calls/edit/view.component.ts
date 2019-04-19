@@ -51,8 +51,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
     'priority': '',
     'startDate': '',
     'completionDate': '',
-    'createdOn': '',
-    'updatedOn': ''
+    'createdOn': ''
   };
 
   validationMessages: {
@@ -166,7 +165,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
     if (this.call) {
       this.callForm.reset();
 
-      if (this.call._id === '') {
+      if (this.call.name === '') {
         this.pageTitle = 'Create Call';
         this.exists = false;
       } else {
@@ -187,7 +186,7 @@ export class ViewComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.call._id === '') {
+    if (!this.call) {
       this.exists = false;
     } else {
       this.exists = true;

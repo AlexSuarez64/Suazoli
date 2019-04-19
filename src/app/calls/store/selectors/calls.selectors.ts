@@ -25,8 +25,7 @@ export const getCall = createSelector(
         priority: 'High',
         startDate: '',
         completionDate: '',
-        createdOn: '',
-        updatedOn: ''
+        createdOn: ''
       };
     } else {
       return router.state && callsState.entities[router.state.params.id];
