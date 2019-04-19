@@ -40,8 +40,8 @@ export class CallsService {
                   );
   }
 
-  createCall(call: Call): Observable<Object> {
-    return this.hc.post(`${this.baseUrl}`, call, this.httpOptions)
+  createCall(call: Call): Observable<Call> {
+    return this.hc.post<Call>(`${this.baseUrl}`, call, this.httpOptions)
                   .pipe(
                     catchError(this.handleError)
                   );
@@ -54,8 +54,8 @@ export class CallsService {
                   );
   }
 
-  updateCall(call: Call): Observable<Object> {
-    return this.hc.put(`${this.baseUrl}/${call._id}`, call, this.httpOptions)
+  updateCall(call: Call): Observable<Call> {
+    return this.hc.put<Call>(`${this.baseUrl}/${call._id}`, call, this.httpOptions)
                   .pipe(
                     catchError(this.handleError)
                   );
