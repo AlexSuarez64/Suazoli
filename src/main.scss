@@ -25,3 +25,60 @@
 
 // Theme customization
 @import "theme/theme";
+
+.mat-tab-header {
+    border-bottom: none !important;
+}
+
+.mat-tab-label {
+    color: black !important;
+    font-weight: bold !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.mat-tab-label-active {
+    color: white !important;
+    font-weight: bold !important;
+    background-color: #00456a !important;
+    opacity: 1 !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.mat-tab-label:hover {
+    color: white !important;
+    font-weight: bold !important;
+    background-color: #00456a !important;
+    opacity: 1 !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background-color: #00456a !important;
+    margin-bottom: 0px !important;
+}
+
+.mat-tab-header-pagination-chevron {
+    border-style: none !important;
+    margin-left: 0px !important;
+}
+
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus, .mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus{
+    background-color: #00456a;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background-color: #00456a !important;
+}
+
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+    display: none !important;
+}
