@@ -11,7 +11,7 @@ import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { storeFreeze } from 'ngrx-store-freeze';
+
 
 import { reducers, effects, CustomSerializer } from './store';
 
@@ -19,7 +19,7 @@ import { MaterialModule } from './material.module';
 import { PrimeNGModule } from './primeng.module';
 
 import { environment } from '../environments/environment';
-export const metaReducers: MetaReducer<any>[] = !environment.production ? [storeFreeze] : [];
+export const metaReducers: MetaReducer<any>[] = !environment.production ? [] : [];
 
 import { AboutModule } from './about/about.module';
 import { CallsModule } from './calls/calls.module';
@@ -49,9 +49,9 @@ import { AppRoutingModule } from './app-routing.module';
     AboutModule,
     CallsModule,
     LoginModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers, { metaReducers, runtimeChecks: { strictStateImmutability: true, strictActionImmutability: true } }),
     EffectsModule.forRoot(effects),
-    StoreRouterConnectingModule,
+    StoreRouterConnectingModule.forRoot(),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
 
     AppRoutingModule // must be imported as the last module as it contains the fallback route
