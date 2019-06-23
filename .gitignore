@@ -41,7 +41,17 @@ xcuserdata/
 /connect.lock
 /coverage
 /libpeerconnection.log
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+*.sublime-project
+*.sublime-workspace
+.vscode/
 npm-debug.log
+npm-debug.log*
 yarn-error.log
 testem.log
 /typings
@@ -49,6 +59,25 @@ testem.log
 /src/translations/template.*
 /src/environments/.env.*
 
+# Ionic
+.idea/
+.ionic/
+.sourcemaps/
+.sass-cache/
+.tmp/
+.versions/
+coverage/
+www/
+node_modules/
+tmp/
+temp/
+platforms/
+plugins/
+plugins/android.json
+plugins/ios.json
+$RECYCLE.BIN/
+
 # System Files
 .DS_Store
 Thumbs.db
+UserInterfaceState.xcuserstate
