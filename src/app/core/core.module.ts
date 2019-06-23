@@ -7,7 +7,7 @@ import { RouteReusableStrategy } from './route-reusable-strategy';
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
 import { I18nService } from './i18n.service';
-import { HttpService } from './http/http.service';
+// import { HttpService } from './http/http.service';
 import { HttpCacheService } from './http/http-cache.service';
 import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
 import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
@@ -28,10 +28,10 @@ import { CacheInterceptor } from './http/cache.interceptor';
     ApiPrefixInterceptor,
     ErrorHandlerInterceptor,
     CacheInterceptor,
-    {
-      provide: HttpClient,
-      useClass: HttpService
-    },
+    // {
+    //   provide: HttpClient,
+    //   useClass: HttpService
+    // },
     {
       provide: RouteReuseStrategy,
       useClass: RouteReusableStrategy
