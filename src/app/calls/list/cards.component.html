@@ -1,8 +1,29 @@
-<mat-grid-list cols="5" rowHeight="160px:160px" class="call-card mat-elevation-z10">
-    <mat-grid-tile class="card-size" *ngFor="let call of calls | callName:nameFilter | callDescription:descriptionFilter" (click)="onEdit(call.id)" matTooltip="{{ call.priority }} - {{ call.description }}">
-            <div class="card-size">
-                {{call.name}} <br/>
-                <strong>Start: {{call.startDate | date:'shortDate' }}</strong>
-            </div>
-    </mat-grid-tile>
-</mat-grid-list>
+<!-- <span *ngFor="let call of calls | callName:nameFilter | callDescription:descriptionFilter" (click)="onEdit(call.id)">
+  <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%">
+    <div fxFlex="20%"  class="card-size" matTooltip="{{ call.priority }} - {{ call.description }}">
+      <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg">
+      <div class="card-size">
+        <strong>{{call.name}}</strong> <br/>
+        Start: {{call.startDate | date:'shortDate' }}
+      </div>
+    </div>
+  </div> -->
+<!-- <div *ngFor="let call of calls | callName:nameFilter | callDescription:descriptionFilter" (click)="onEdit(call.id)">
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+    <span fxFlex="10%" fxLayout="column" fxLayout.xs="row" fxLayoutWrap fxLayoutGap="2%"
+    matTooltip="Start: {{call.startDate | date:'shortDate' }} {{ call.priority }} - {{ call.description }}">{{call.name}}</span>
+</div> -->
+<!-- <mat-card class="card-size" matTooltip="{{ call.priority }} - {{ call.description }}">
+      <div class="card-size">
+        <strong>{{call.name}}</strong> <br/>
+        Start: {{call.startDate | date:'shortDate' }}
+      </div>
+  </mat-card> -->
+<!-- </span> -->
+<div fxLayout="column" fxLayout.xs="row" fxLayoutWrap fxLayoutGap="2%">
+    <mat-card class="card-size" *ngFor="let call of calls | callName:nameFilter | callDescription:descriptionFilter" (click)="onEdit(call.id)">
+        <mat-card-title fxLayout.gt-xs="column" fxLayout.xs="row" matTooltip="Start: {{call.startDate | date:'shortDate' }} {{ call.priority }} - {{ call.description }}">
+            <span fxFlex="10%">{{call.name}}</span>
+        </mat-card-title>
+    </mat-card>
+</div>
